@@ -56,38 +56,29 @@ class Project(models.Model):
         self.save()
 
 class Rating(models.Model):
-  
+    rating = (
+        (1, '1'),
+        (2, '2'),
+        (3, '3'),
+        (4, '4'),
+        (5, '5'),
+        (6, '6'),
+        (7, '7'),
+        (8, '8'),
+        (9, '9'),
+        (10, '10'),
+    )
 
-    design = models.IntegerField(default=0, validators=[
-                                       MaxValueValidator(10),
-                                       MinValueValidator(1)
-                                     ])
-    usability = models.IntegerField(default=0, validators=[
-                                       MaxValueValidator(10),
-                                       MinValueValidator(1)
-                                     ])
-    content = models.IntegerField(default=0, validators=[
-                                       MaxValueValidator(10),
-                                       MinValueValidator(1)
-                                     ])
-    score = models.FloatField(default=0, validators=[
-                                       MaxValueValidator(10),
-                                       MinValueValidator(1)
-                                     ])
-    design_average = models.FloatField(default=0, validators=[
-                                       MaxValueValidator(10),
-                                       MinValueValidator(1)
-                                     ])
-    usability_average = models.FloatField(default=0, validators=[
-                                       MaxValueValidator(10),
-                                       MinValueValidator(1)
-                                     ])
-    content_average = models.FloatField(default=0, validators=[
-                                       MaxValueValidator(10),
-                                       MinValueValidator(1)
-                                     ])
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    project = models.ForeignKey(Project, on_delete=models.CASCADE)
+    
+    design = models.IntegerField(choices=rating, default=0, blank=True)
+    usability = models.IntegerField(choices=rating, blank=True)
+    content = models.IntegerField(choices=rating, blank=True)
+    score = models.FloatField(default=0, blank=True)
+    design_average = models.FloatField(default=0, blank=True)
+    usability_average = models.FloatField(default=0, blank=True)
+    content_average = models.FloatField(default=0, blank=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, related_name='rater')
+    project = models.ForeignKey(Project, on_delete=models.CASCADE, related_name='ratings', null=True)
 
     def save_rating(self):
         self.save()
