@@ -12,6 +12,7 @@ router.register('profile', views.ProfileViewSet)
 urlpatterns=[
     path('', views.index, name='index'),
     path('signup/', views.signup, name='signup'),
+    path('login', views.login, name='login'),
     path('<username>/profile', views.user_profile, name='user_profile'),
     path('profile/<username>/', views.profile, name='profile'),
     path('profile/<username>/settings', views.edit_profile, name='edit_profile'),

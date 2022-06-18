@@ -1,4 +1,5 @@
 {% load crispy_forms_tags %}
+
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar" id="nbar">
     <div class="container">
         <a class="navbar-brand" href="{% url 'index' %}"> <strong class="mr-4 brand"> Awwards</strong></a>
@@ -41,7 +42,7 @@
                 <a href="{% url 'login' %}" class="login btn btn-sm btn-info"> REGISTER/LOGIN </a>
                 {% endif %}
                 <button class="btn btn-info btn-sm" id="site" data-toggle="modal" data-target=".bd-example-modal-xl">
-                    Submit your site
+                    Submit your project
                 </button>
             </ul>
         </div>

@@ -41,9 +41,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'pyuploadcare.dj',
     'projects',
     'bootstrap4',
-    'pyuploadcare.dj',
     'crispy_forms',
     'rest_framework',
 ]
@@ -90,7 +90,7 @@ WSGI_APPLICATION = 'Awwards.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'project',
+        'NAME': 'projects',
         'USER': 'carol',
         'PASSWORD':'lorac1234',
     }
@@ -143,3 +143,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+LOGIN_REDIRECT_URL = 'index'
+
+LOGOUT_REDIRECT_URL = 'index'

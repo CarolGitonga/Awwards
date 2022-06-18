@@ -46,9 +46,10 @@ def signup(request):
     return render(request, 'registration/signup.html', {'form': form})
 
 
-@login_required(login_url='login')
+@login_required(login_url='/accounts/login/')
 def profile(request, username):
     return render(request, 'profile/profile.html')
+    
 
 def user_profile(request, username):
     user_prof = get_object_or_404(User, username=username)
