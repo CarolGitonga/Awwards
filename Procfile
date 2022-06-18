@@ -1,1 +1,1 @@
-web: gunicorn Awwards.wsgi
+web: gunicorn dj_Awwards.wsgi
